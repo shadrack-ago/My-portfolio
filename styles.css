@@ -5,7 +5,7 @@
     --background-color: rgb(16, 87, 80);
     --secondary-bg: rgb(16, 87, 80);
     --text-color: #111827;
-    --text-secondary: white;
+    --text-secondary: #111827;
     --border-color: #e5e7eb;
     --radius: 0.75rem;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -285,8 +285,9 @@
   }
   
   .about-image {
+    /* width: 151.017px; height: 188.771px; transform: translate(-3.74792px, -9.20909px) rotate(0deg); */
     width: 100%;
-    max-width: 30rem;
+    max-width: 25rem;
   }
   
   .image-placeholder {
@@ -314,10 +315,17 @@
   }
   
   .about-description {
-    color: var(--text-secondary);
+    color: var(--primary-color);
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    background-image: url('images/div2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    border-radius: 6px;
+    padding: 4px;
   }
   
   /* Services Section */

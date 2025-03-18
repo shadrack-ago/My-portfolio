@@ -1,11 +1,11 @@
 /* Base styles */
 :root {
-    --primary-color: #2563eb; /* todo-blue */
+    --primary-color: #f5f7fc; /* todo-blue */
     --primary-hover: rgba(37, 99, 235, 0.9);
-    --background-color: #ffffff;
-    --secondary-bg: #f9fafb;
+    --background-color: rgb(16, 87, 80);
+    --secondary-bg: rgb(16, 87, 80);
     --text-color: #111827;
-    --text-secondary: #4b5563;
+    --text-secondary: white;
     --border-color: #e5e7eb;
     --radius: 0.75rem;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -34,7 +34,7 @@
   
   a {
     text-decoration: none;
-    color: inherit;
+    color: white;
     transition: var(--transition);
   }
   
@@ -87,13 +87,15 @@
   }
   
   .btn-primary {
-    background-color: var(--primary-color);
+    background-color: rgb(32, 212, 32);
+    
     color: white;
     border: none;
   }
   
   .btn-primary:hover {
     background-color: var(--primary-hover);
+    transition: 1s;
   }
   
   .btn-outline {
@@ -117,10 +119,10 @@
     top: 0;
     z-index: 50;
     width: 100%;
-    background-color: rgba(179, 177, 177, 0.9);
+    background-color: rgb(16, 87, 80);;
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
+    /* box-shadow: var(--shadow-sm); */
   }
   
   .navbar .container {
@@ -136,7 +138,12 @@
   }
   
   .navbar-menu {
-    display: none;
+    display: flex;
+  }
+
+  .navbar-menu a:hover{
+    text-decoration: underline red;
+    transition: 2s;
   }
   
   .navbar-toggle {
@@ -176,12 +183,13 @@
     min-height: 90vh;
     display: flex;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 65px;
     /* added a background-image */
     background-image: url('images/background.jpg'); 
     background-size: cover; 
-    background-position: center; 
     background-repeat: no-repeat;
+    height: 100%;
+   
   }
   
   .hero-content {
@@ -211,7 +219,7 @@
   }
   
   .description {
-    color: var(--text-secondary);
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
   }
   
@@ -247,7 +255,7 @@
     display: none;
     flex-direction: column;
     align-items: center;
-    color: var(--text-secondary);
+    color: var(--primary-color);
     animation: bounce 2s infinite;
   }
   

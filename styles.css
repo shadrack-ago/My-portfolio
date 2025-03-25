@@ -306,7 +306,7 @@
     max-width: 36rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   
   .about-title {
@@ -320,12 +320,17 @@
     flex-direction: column;
     gap: 1rem;
 
+    /* added a new image */
     background-image: url('images/div2.png');
-    background-size: cover;
+    height: 250px;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     align-items: center;
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 4px;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Adjust the blur strength */
+
   }
   
   /* Services Section */

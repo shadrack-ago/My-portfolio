@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Update icon based on menu state
       const icon = menuToggle.querySelector('i');
-      if (mobileMenu.classList.contains('active')) {
+      
+    if (mobileMenu.classList.contains('active')) {
         icon.setAttribute('data-lucide', 'x');
       } else {
         icon.setAttribute('data-lucide', 'menu');
       }
       lucide.createIcons();
     });
-    
     // Close mobile menu when clicking on a link
     const mobileLinks = mobileMenu.querySelectorAll('a');
     mobileLinks.forEach(link => {

@@ -293,11 +293,9 @@
   .image-placeholder {
     width: 100%;
     height: 20rem;
+    max-width: 300px;
     background-color: #e5e7eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius);
+    border-radius: 50%;
     color: var(--text-secondary);
     box-shadow: var(--shadow);
   }
@@ -313,16 +311,22 @@
     font-size: 1.5rem;
     font-weight: 600;
   }
+  #para{
+    margin: 36px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: gothic;
+  }
   
   .about-description {
-    color: var(--primary-color);
+    color: black;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
 
     /* added a new image */
-    background-image: url('images/div2.png');
-    height: 250px;
+    background-image: url('images/about.jpg');
+    height: 350px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     align-items: center;
@@ -332,7 +336,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Adjust the blur strength */
 
   }
-  
+
+
   /* Services Section */
   .services {
     padding: 5rem 0;

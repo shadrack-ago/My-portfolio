@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
-    let currentIndex = 0;
+    let currentIndex = 1;
     
     function showTestimonial(index) {
       testimonials.forEach(card => card.classList.remove('active'));

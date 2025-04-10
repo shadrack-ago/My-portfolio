@@ -361,7 +361,7 @@ nav ul li a:hover {
 
     /* added a new image */
     background-image: url('images/about.jpg');
-    height: 350px;
+    height: auto;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     align-items: center;

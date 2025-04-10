@@ -176,6 +176,7 @@ nav ul li a:hover {
   label.logo{
       font-size: 20px;
       padding-left: 50px;
+      margin-bottom: 5px;
       
   }
   nav ul li a{
@@ -220,7 +221,6 @@ nav ul li a:hover {
     background-size: cover; 
     background-repeat: no-repeat;
     height: 100%;
-   
   }
   
   .hero-content {

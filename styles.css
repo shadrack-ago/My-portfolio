@@ -187,11 +187,12 @@ nav ul li a:hover {
   }
   .checkbtn{
       display: block;
+      /* float: left; */
   }
   nav ul{
       position: absolute;
       background: rgb(16, 87, 80);
-      width: 100%;
+      width: 40%;
       height: 100vh;
       top: 80px;
       left: -100%;

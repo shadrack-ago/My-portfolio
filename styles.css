@@ -187,6 +187,7 @@ nav ul li a:hover {
   }
   .checkbtn{
       display: block;
+      left: 30%;
       /* float: left; */
   }
   nav ul{

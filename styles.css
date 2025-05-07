@@ -449,7 +449,7 @@ nav ul li a:hover {
   }
   
   .project-card:hover {
-    box-shadow: var(--shadow-lg);
+    transform: scale(1.05);
   }
   
   .project-image {
@@ -468,9 +468,9 @@ nav ul li a:hover {
     transition: var(--transition);
   }
   
-  .project-card:hover .project-title {
+  /* .project-card:hover .project-title {
     color: var(--primary-color);
-  }
+  } */
   
   .project-description {
     color: var(--text-secondary);

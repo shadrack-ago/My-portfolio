@@ -270,12 +270,22 @@ nav ul li a:hover {
   .profile-image {
     width: 16rem;
     height: 16rem;
-    background-color: rgba(37, 99, 235, 0.1);
+    background-color: rgba(15, 87, 243, 0.1);
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: rotate3d 4s infinite linear;
+  }
+
+  @keyframes rotate3d {
+    0% {
+      transform: rotate3d(1, 1, 1, 0deg);
+    }
+    100% {
+      transform: rotate3d(1, 0, 1, 360deg);
+    }
   }
   
   .profile-placeholder {

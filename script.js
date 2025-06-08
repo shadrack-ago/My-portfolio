@@ -117,5 +117,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     });
+
+    // Project carousels logic
+    function initProjectCarousel(trackId, prevBtnSelector, nextBtnSelector, visibleCount = 3) {
+      const track = document.getElementById(trackId);
+      const cards = Array.from(track.children);
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        cards.forEach((card, idx) => {
+          if (idx >= currentIndex && idx < currentIndex + visibleCount) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      updateCarousel();
+
+      document.querySelector(prevBtnSelector).addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = Math.max(0, cards.length - visibleCount);
+        }
+        updateCarousel();
+      });
+
+      document.querySelector(nextBtnSelector).addEventListener('click', () => {
+        if (currentIndex < cards.length - visibleCount) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+        updateCarousel();
+      });
+    }
+
+    // Initialize carousels for each group
+    initProjectCarousel('webstack-track', '#webstack-carousel .prev', '#webstack-carousel .next');
+    initProjectCarousel('data-track', '#data-carousel .prev', '#data-carousel .next');
+    initProjectCarousel('ai-track', '#ai-carousel .prev', '#ai-carousel .next');
   });
   

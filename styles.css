@@ -1155,11 +1155,11 @@ nav ul li a:hover {
     font-size: 1.08rem;
     font-weight: 600;
     margin-bottom: 0.3rem;
-    color: #222;
+    color: #111;
   }
 
   .project-description {
-    color: #eee;
+    color: #111;
     font-size: 0.97rem;
     margin-bottom: 0.7rem;
     text-align: center;
@@ -1172,7 +1172,7 @@ nav ul li a:hover {
   .tag {
     display: inline-block;
     background: #e6f9f2;
-    color: #32d296;
+    color: #111;
     border-radius: 0.5rem;
     padding: 0.2rem 0.7rem;
     font-size: 0.9rem;
@@ -1181,7 +1181,7 @@ nav ul li a:hover {
   }
 
   .project-link {
-    color: #222;
+    color: #111;
     font-weight: 500;
     margin-top: auto;
     display: inline-flex;

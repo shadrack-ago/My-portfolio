@@ -159,5 +159,31 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectCarousel('webstack-track', '#webstack-carousel .prev', '#webstack-carousel .next');
     initProjectCarousel('data-track', '#data-carousel .prev', '#data-carousel .next');
     initProjectCarousel('ai-track', '#ai-carousel .prev', '#ai-carousel .next');
+
+    // See More/See Less logic for project groups
+    function setupSeeMoreButtons() {
+      document.querySelectorAll('.see-more-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const group = btn.getAttribute('data-group');
+          const grid = document.getElementById(`${group}-group`);
+          const extras = grid.querySelectorAll('.extra-project');
+          const isExpanded = btn.classList.toggle('expanded');
+          extras.forEach(card => {
+            if (isExpanded) {
+              card.style.display = '';
+              card.classList.add('fade-in');
+            } else {
+              card.style.display = 'none';
+            }
+          });
+          btn.textContent = isExpanded ? 'See Less' : 'See More';
+        });
+      });
+    }
+
+    // Run on DOMContentLoaded
+    window.addEventListener('DOMContentLoaded', function() {
+      setupSeeMoreButtons();
+    });
   });
   

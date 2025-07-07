@@ -29,7 +29,7 @@
     font-family: arial;
     line-height: 1.5;
     color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: rgba(15, 87, 243, 0.1);
   }
   
   a {
@@ -87,7 +87,7 @@
   }
   
   .btn-primary {
-    background-color: rgb(32, 212, 32);
+    background-color: rgb(16, 87, 80);
     
     color: white;
     border: none;
@@ -640,7 +640,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color:  rgba(15, 87, 243, 0.1);
     border: 1px solid var(--border-color);
     cursor: pointer;
     transition: var(--transition);
@@ -1062,5 +1062,169 @@ nav ul li a:hover {
       grid-template-columns: 1fr;
       gap: 1rem;
     }
+  }
+  
+  .modern-projects {
+    background: rgb(16, 87, 80);
+    padding: 2.5rem 0 1.2rem 0;
+  }
+
+  .project-group {
+    margin-bottom: 2.2rem;
+  }
+
+  .project-group-title.centered {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: #1a202c;
+  }
+
+  .group-underline {
+    margin-bottom: 0.5rem;
+  }
+  .group-underline span {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #32d296 0%, #ffd700 100%);
+    border-radius: 2px;
+  }
+
+  .group-description.centered {
+    margin-bottom: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  @media (max-width: 1000px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 700px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .project-card {
+    background: #fff;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 1.5px 4px rgba(0,0,0,0.03);
+    padding: 1.2rem 1rem 1rem 1rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+    border: 1px solid #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 370px;
+    height: 100%;
+    position: relative;
+  }
+  .project-card:hover {
+    box-shadow: 0 8px 32px rgba(50, 210, 150, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+    transform: translateY(-6px) scale(1.025);
+    z-index: 2;
+  }
+
+  .project-image .image-placeholder {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 0.7rem;
+    background: #f3f4f6;
+  }
+
+  .project-title {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #222;
+  }
+
+  .project-description {
+    color: #666;
+    font-size: 0.97rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .project-tags {
+    margin-bottom: 0.7rem;
+  }
+  .tag {
+    display: inline-block;
+    background: #e6f9f2;
+    color: #32d296;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .project-link {
+    color: #222;
+    font-weight: 500;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.2s;
+  }
+  .project-link:hover {
+    color: #32d296;
+    text-decoration: underline;
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.7s forwards;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .see-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2rem;
+  }
+  .see-more-btn {
+    /* Remove custom gradient, use btn-primary */
+    background: rgb(16, 87, 80);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(50, 210, 150, 0.08);
+    transition: background 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .see-more-btn:hover {
+    background-color: var(--primary-hover);
+    color: white;
+  }
+
+  .extra-project {
+    display: none;
   }
   

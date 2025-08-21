@@ -15,10 +15,22 @@
   <script type="text/javascript">
   (function(){
   emailjs.init({
-    publicKey: "v89JLaRFzATkMkVvW",
+    publicKey: "https://agents.customcx.com/webhook/71b9dd6d-e122-42be-b7f9-db0646c1315a/chat",
   });
   })();
   </script>    
+
+
+<!-- n8n chat widget -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'YOUR_PRODUCTION_WEBHOOK_URL'
+	});
+</script>
+
 </head>
 <body>
   <!-- Navbar -->
@@ -76,13 +88,6 @@
         </div>
       </div>
     </section>
-    <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-    Chatbot.init({
-        chatflowid: "dd290a0c-e3d4-4978-a865-cd99334cf01a",
-        apiHost: "https://cloud.flowiseai.com",
-    })
-</script>
 
 
     <!-- About Section -->

@@ -9,7 +9,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+  (function(){
+  emailjs.init({
+    publicKey: "v89JLaRFzATkMkVvW",
+  });
+  })();
+  </script>    
 </head>
 <body>
   <!-- Navbar -->
@@ -28,7 +37,7 @@
         <li><a href="#tools"style="margin: 2px;" >Tools</a></li>
         <li><a href="#testimonials" style="margin: 2px;">Testimonials</a></li>
         <!-- <li><a href="#contact">Contact</a></li> -->
-        <li><a href="#contact" class="btn btn-outline">Hire Me</a></li>
+        <li><a href="#contact" class="btn btn-outline">contact Me</a></li>
       </ul>
       
       
@@ -42,7 +51,7 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-text">
-            <h2 class="subtitle">Agent Builder, UI/UX, Software Dev, Zappier Expert </h2>
+            <h2 class="subtitle">Automation Engineer, UI/UX, Software Dev, AI Expert </h2>
             <h1 class="title" style="color: goldenrod;">SHADRACK OTIENO</h1>
             <p class="description">
               "Transforming ideas into digital solutions. Specializing in AI automation, AI-powered softwares, rapid development, and data analysis to drive business growth."
@@ -55,7 +64,7 @@
           </div>
           <div class="hero-image">
             <div class="profile-image">
-              <div class="profile-placeholder"> "Data enthusiast"</div>
+              <div class="profile-placeholder"> "DeepTech enthusiast"</div>
             </div>
           </div>
         </div>
@@ -237,6 +246,22 @@
                 <span class="tag">Backend</span>
               </div>
               <a href="https://agoportal.netlify.app/" class="project-link" style="color: black;">View Project <i data-lucide="arrow-up-right"></i></a>
+            </div>
+            <!-- MERN Stack front-end and back-end integration -->
+            <div class="project-card fade-in extra-project" style="display:none;">
+              <div class="project-image">
+                <div class="image-placeholder"><img src="project images/Week4 Mern.png" alt="MERN Blog" class="image-placeholder"> </div>
+              </div>
+              <h3 class="project-title">BLOG site</h3>
+              <p class="project-description">A simple blog site, built with MERN stack. Front-end and back-end integration.</p>
+              <div class="project-tags">
+                <span class="tag">MongoDB</span>
+                <span class="tag">RESTful APIs</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+              </div>
+              <a href="https://github.com/shadrack-ago/week-4-mern-integration-assignment-shadrack-ago.git" class="project-link" style="color: black;">View Project <i data-lucide="arrow-up-right"></i></a>
             </div>
           </div>
           <div class="see-more-wrap"><button class="see-more-btn" data-group="webstack">See More</button></div>
@@ -631,22 +656,22 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" id="name" placeholder="Your name">
+                  <input type="text" id="name" placeholder="Your name" required>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" id="email" placeholder="Your email">
+                  <input type="email" id="email" placeholder="Your email" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" placeholder="Subject">
+                <input type="text" id="subject" placeholder="Subject" required>
               </div>
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" rows="5" placeholder="Your message"></textarea>
+                <textarea id="message" rows="5" placeholder="Your message" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary btn-full">
+              <button type="submit" onsubmit="sendEmail()"  class="btn btn-primary btn-full">
                 <i data-lucide="send"></i> Send Message
               </button>
             </form>

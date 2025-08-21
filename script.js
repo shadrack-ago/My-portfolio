@@ -72,29 +72,36 @@ document.addEventListener('DOMContentLoaded', function() {
       showTestimonial(newIndex);
     }, 5000);
     
-    // Contact form submission
+    //contact form submission
+    function sendEmail(){
+      let params = {
+        name : document.getElementById('name').value,
+        email : document.getElementById('email').value,
+        subject : document.getElementById('subject').value,
+        message : document.getElementById('message').value
+      }
+      
+      // Basic validation
+      if(!params.name || !params.email || !params.subject || !params.message){
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      emailjs.send("service_4eluhde","template_114jkgj",params)
+        .then(function(response){
+          alert("Message sent successfully! I will get back to you soon.");
+          document.getElementById('contactForm').reset();
+        }, function(error){
+          alert("Failed to send message. Please try again later.");
+        });
+    }
+
+    // Attach sendEmail to form submit event
     const contactForm = document.getElementById('contactForm');
-    
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        // Basic validation
-        if (!name || !email || !message) {
-          alert('Please fill in all required fields');
-          return;
-        }
-        
-        // Here you would typically send the form data to a server
-        // For this example, we'll just show a success message
-        alert('Message sent successfully! I will get back to you soon.');
-        contactForm.reset();
+        sendEmail();
       });
     }
     
@@ -162,28 +169,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // See More/See Less logic for project groups
     function setupSeeMoreButtons() {
-      document.querySelectorAll('.see-more-btn').forEach(btn => {
+      console.log('Setting up See More buttons...');
+      const buttons = document.querySelectorAll('.see-more-btn');
+      console.log('Found buttons:', buttons.length);
+      
+      buttons.forEach(btn => {
         btn.addEventListener('click', function() {
           const group = btn.getAttribute('data-group');
+          console.log('Button clicked for group:', group);
+          
           const grid = document.getElementById(`${group}-group`);
-          const extras = grid.querySelectorAll('.extra-project');
-          const isExpanded = btn.classList.toggle('expanded');
-          extras.forEach(card => {
-            if (isExpanded) {
-              card.style.display = '';
-              card.classList.add('fade-in');
-            } else {
-              card.style.display = 'none';
-            }
-          });
-          btn.textContent = isExpanded ? 'See Less' : 'See More';
+          console.log('Found grid:', grid);
+          
+          if (grid) {
+            const extras = grid.querySelectorAll('.extra-project');
+            console.log('Found extra projects:', extras.length);
+            
+            const isExpanded = btn.classList.toggle('expanded');
+            extras.forEach(card => {
+              if (isExpanded) {
+                card.style.display = '';
+                card.classList.add('fade-in');
+              } else {
+                card.style.display = 'none';
+              }
+            });
+            btn.textContent = isExpanded ? 'See Less' : 'See More';
+          } else {
+            console.error('Grid not found for group:', group);
+          }
         });
       });
     }
 
     // Run on DOMContentLoaded
-    window.addEventListener('DOMContentLoaded', function() {
-      setupSeeMoreButtons();
-    });
+    setupSeeMoreButtons();
   });
   

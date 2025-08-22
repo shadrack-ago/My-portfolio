@@ -7,28 +7,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.navbar-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
     
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('active');
-      
-      // Update icon based on menu state
-      const icon = menuToggle.querySelector('i');
-      
-    if (mobileMenu.classList.contains('active')) {
-        icon.setAttribute('data-lucide', 'x');
-      } else {
-        icon.setAttribute('data-lucide', 'menu');
-      }
-      lucide.createIcons();
-    });
-    // Close mobile menu when clicking on a link
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-        menuToggle.querySelector('i').setAttribute('data-lucide', 'menu');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        
+        // Update icon based on menu state
+        const icon = menuToggle.querySelector('i');
+        
+        if (mobileMenu.classList.contains('active')) {
+          icon && icon.setAttribute('data-lucide', 'x');
+        } else {
+          icon && icon.setAttribute('data-lucide', 'menu');
+        }
         lucide.createIcons();
       });
-    });
+      // Close mobile menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon && icon.setAttribute('data-lucide', 'menu');
+          lucide.createIcons();
+        });
+      });
+    }
     
     // Testimonial slider
     const testimonials = document.querySelectorAll('.testimonial-card');
@@ -38,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     
     function showTestimonial(index) {
+      if (!testimonials.length || !dots.length) return;
       testimonials.forEach(card => card.classList.remove('active'));
       dots.forEach(dot => dot.classList.remove('active'));
-      
       testimonials[index].classList.add('active');
       dots[index].classList.add('active');
       currentIndex = index;
@@ -52,28 +55,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Previous button
-    prevBtn.addEventListener('click', () => {
-      let newIndex = currentIndex - 1;
-      if (newIndex < 0) newIndex = testimonials.length - 1;
-      showTestimonial(newIndex);
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) newIndex = testimonials.length - 1;
+        showTestimonial(newIndex);
+      });
+    }
     
     // Next button
-    nextBtn.addEventListener('click', () => {
-      let newIndex = currentIndex + 1;
-      if (newIndex >= testimonials.length) newIndex = 0;
-      showTestimonial(newIndex);
-    });
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= testimonials.length) newIndex = 0;
+        showTestimonial(newIndex);
+      });
+    }
     
     // Auto advance testimonials every 5 seconds
-    setInterval(() => {
-      let newIndex = currentIndex + 1;
-      if (newIndex >= testimonials.length) newIndex = 0;
-      showTestimonial(newIndex);
-    }, 5000);
+    if (testimonials.length) {
+      setInterval(() => {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= testimonials.length) newIndex = 0;
+        showTestimonial(newIndex);
+      }, 5000);
+    }
     
     //contact form submission
     function sendEmail(){
+      const formStatus = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submitBtn');
+
       let params = {
         name : document.getElementById('name').value,
         email : document.getElementById('email').value,
@@ -81,18 +93,51 @@ document.addEventListener('DOMContentLoaded', function() {
         message : document.getElementById('message').value
       }
       
-      // Basic validation
+      // Basic validation (browser also enforces required attributes)
       if(!params.name || !params.email || !params.subject || !params.message){
-        alert('Please fill in all required fields');
+        if (formStatus) {
+          formStatus.textContent = 'Please fill in all required fields.';
+          formStatus.className = 'form-status error';
+        } else {
+          alert('Please fill in all required fields');
+        }
         return;
+      }
+
+      // UI: disable while sending
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+      if (formStatus) {
+        formStatus.textContent = 'Sending your message...';
+        formStatus.className = 'form-status';
       }
       
       emailjs.send("service_4eluhde","template_114jkgj",params)
         .then(function(response){
-          alert("Message sent successfully! I will get back to you soon.");
+          if (formStatus) {
+            formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+            formStatus.className = 'form-status success';
+          } else {
+            alert("Message sent successfully! I will get back to you soon.");
+          }
           document.getElementById('contactForm').reset();
         }, function(error){
-          alert("Failed to send message. Please try again later.");
+          const errorMsg = (error && (error.text || error.message)) ? `Failed to send: ${error.text || error.message}` : 'Failed to send message. Please try again later.';
+          if (formStatus) {
+            formStatus.textContent = errorMsg;
+            formStatus.className = 'form-status error';
+          } else {
+            alert(errorMsg);
+          }
+        })
+        .finally(function(){
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i data-lucide="send"></i> Send Message';
+            lucide.createIcons();
+          }
         });
     }
 

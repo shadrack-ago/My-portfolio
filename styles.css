@@ -1297,3 +1297,23 @@ nav ul li a:hover {
   }
 }
   
+/* Contact form status */
+.form-status {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  min-height: 1.2em;
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-status.success {
+  color: #0a7d0a;
+}
+
+.form-status.error {
+  color: #b00020;
+}
+  

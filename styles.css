@@ -1234,3 +1234,66 @@ nav ul li a:hover {
     display: none;
   }
   
+/* Marquee Effect for Projects */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Project cards in marquee */
+.marquee-container .project-card {
+  min-width: 350px;
+  margin-right: 2rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.marquee-container .project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marquee-container .project-card {
+    min-width: 280px;
+    margin-right: 1.5rem;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-60%);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-container .project-card {
+    min-width: 250px;
+    margin-right: 1rem;
+  }
+}
+  

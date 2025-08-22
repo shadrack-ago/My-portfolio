@@ -105,9 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-    // Set current year in footer
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -125,84 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Project carousels logic
-    function initProjectCarousel(trackId, prevBtnSelector, nextBtnSelector, visibleCount = 3) {
-      const track = document.getElementById(trackId);
-      const cards = Array.from(track.children);
-      let currentIndex = 0;
-
-      function updateCarousel() {
-        cards.forEach((card, idx) => {
-          if (idx >= currentIndex && idx < currentIndex + visibleCount) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      }
-
-      updateCarousel();
-
-      document.querySelector(prevBtnSelector).addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = Math.max(0, cards.length - visibleCount);
-        }
-        updateCarousel();
-      });
-
-      document.querySelector(nextBtnSelector).addEventListener('click', () => {
-        if (currentIndex < cards.length - visibleCount) {
-          currentIndex++;
-        } else {
-          currentIndex = 0;
-        }
-        updateCarousel();
-      });
-    }
-
-    // Initialize carousels for each group
-    initProjectCarousel('webstack-track', '#webstack-carousel .prev', '#webstack-carousel .next');
-    initProjectCarousel('data-track', '#data-carousel .prev', '#data-carousel .next');
-    initProjectCarousel('ai-track', '#ai-carousel .prev', '#ai-carousel .next');
-
-    // See More/See Less logic for project groups
-    function setupSeeMoreButtons() {
-      console.log('Setting up See More buttons...');
-      const buttons = document.querySelectorAll('.see-more-btn');
-      console.log('Found buttons:', buttons.length);
-      
-      buttons.forEach(btn => {
-        btn.addEventListener('click', function() {
-          const group = btn.getAttribute('data-group');
-          console.log('Button clicked for group:', group);
-          
-          const grid = document.getElementById(`${group}-group`);
-          console.log('Found grid:', grid);
-          
-          if (grid) {
-            const extras = grid.querySelectorAll('.extra-project');
-            console.log('Found extra projects:', extras.length);
-            
-            const isExpanded = btn.classList.toggle('expanded');
-            extras.forEach(card => {
-              if (isExpanded) {
-                card.style.display = '';
-                card.classList.add('fade-in');
-              } else {
-                card.style.display = 'none';
-              }
-            });
-            btn.textContent = isExpanded ? 'See Less' : 'See More';
-          } else {
-            console.error('Grid not found for group:', group);
-          }
-        });
-      });
-    }
-
-    // Run on DOMContentLoaded
-    setupSeeMoreButtons();
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
   });
   

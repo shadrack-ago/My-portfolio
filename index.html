@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shadrack Portfolio</title>
+
+  <!-- n8n styling -->
+   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+   <!-- n8n styling end -->
+
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@0.176.0/dist/umd/lucide.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -22,13 +28,18 @@
 
 
 <!-- n8n chat widget -->
-<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
 <script type="module">
 	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
 	createChat({
-		webhookUrl: 'https://agents.customcx.com/webhook/71b9dd6d-e122-42be-b7f9-db0646c1315a/chat'
-	});
+		webhookUrl: 'https://agents.customcx.com/webhook/71b9dd6d-e122-42be-b7f9-db0646c1315a/chat',
+	initialMessages: [
+		// 'Hi there! 👋',
+		'My name is Shadrack AI. Ask me about Shadrack\'s qualifications?'
+	]
+  
+  });
 </script>
 
 </head>
@@ -199,6 +210,27 @@
             <div class="marquee-track">
               <!-- First set of projects -->
 
+
+                            <div class="project-card">
+                <div class="project-image">
+                  <div class="image-placeholder"><img src="project images/Lizza property.png" alt="Vilcom" class="image-placeholder"> </div>
+                </div>
+                <h3 class="project-title">CustomCX</h3>
+                <p class="project-description">This my most complete project on Webstack, it features a comprehensive dashboard, admin panel, AI chat widget
+                  paystack intergration, Authentication &authorization, Deployment, SEO, and Supabase backend.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Supabase</span>
+                  <span class="tag">React</span>
+                  <span class="tag">Domain & hosting</span>
+                  <span class="tag">AI</span>
+                  <span class="tag">Api</span>
+                  <span class="tag">Payment gateway</span>
+                  <span class="tag">Containers</span>
+                </div>
+                <a href="https://vilcomsoc.netlify.app/" class="project-link" style="color: black;">View Project <i data-lucide="arrow-up-right"></i></a>
+              </div>
+
               <div class="project-card">
                 <div class="project-image">
                   <div class="image-placeholder"><img src="project images/Lizza property.png" alt="Vilcom" class="image-placeholder"> </div>
@@ -262,7 +294,23 @@
                 </div>
                 <a href="https://chiquita.my.canva.site/tech-agotech" class="project-link" style="color: black;">View Project <i data-lucide="arrow-up-right"></i></a>
               </div>
+
+              <div class="project-card">
+                <div class="project-image">
+                  <div class="image-placeholder"><img src="project images/student portal.png" alt="Student Portal" class="image-placeholder"> </div>
+                </div>
+                <h3 class="project-title">Reciept gen system</h3>
+                <p class="project-description">A simple receipt generation system for managing invoices. Built with lovable</p>
+                <div class="project-tags">
+                  <span class="tag">Prompt Engineering</span>
+                  <span class="tag">Supabase</span>
+                  <span class="tag">UI/UX</span>
+                  <span class="tag">AI</span>
+                </div>
+                <a href="https://preview--receipt-success-generator.lovable.app/" class="project-link" style="color: black;">View Project <i data-lucide="arrow-up-right"></i></a>
+              </div>
               
+
               <div class="project-card">
                 <div class="project-image">
                   <div class="image-placeholder"><img src="project images/student portal.png" alt="Student Portal" class="image-placeholder"> </div>
@@ -282,7 +330,7 @@
                 <div class="project-image">
                   <div class="image-placeholder"><img src="project images/Nyaatha.png " alt="Nyaathi" class="image-placeholder"> </div>
                 </div>
-                <h3 class="project-title">Nyaathi frontend</h3>
+                <h3 class="project-title">Legacy View</h3>
                 <p class="project-description">Homes and bnb booking site, built with React and Tailwind CSS.</p>
                 <div class="project-tags">
                   <span class="tag">Postgress</span>
@@ -422,6 +470,23 @@
           
           <div class="marquee-container">
             <div class="marquee-track">
+
+              <div class="project-card">
+                <div class="project-image">
+                  <div class="image-placeholder"><img src="project images/googlesheet projo.png" alt="Virtual Assistant" class="image-placeholder">  </div>
+                </div>
+                <h3 class="project-title">Chatbot</h3>
+                <p class="project-description">An AI-powered chatbot built with n8n and Gemini 2.5 flash. embedded chat widget on website</p>
+                <div class="project-tags">
+                  <span class="tag">n8n</span>
+                  <span class="tag">Gemini 2.5 flash</span>
+                  <span class="tag">Langchain</span>
+                  <span class="tag">RAG</span>
+                  <span class="tag">Embeddings</span>
+                </div>
+              </div>
+
+
               <div class="project-card">
                 <div class="project-image">
                   <div class="image-placeholder"><img src="project images/googlesheet projo.png" alt="Virtual Assistant" class="image-placeholder">  </div>

@@ -1,26 +1,71 @@
-<!-- widget -->
- <script>
-    window.chatWidgetConfig={
-        webhook:{
-            url: 'insert webhook url here',
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello world</h1>
+    <!-- Widget Configuration -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script>
+    window.ChatWidgetConfig = {
+        webhook: {
+            url: 'https://agents.customcx.com/webhook/4091fa09-fb9a-4039-9411-7104d213f601/chat',
             route: 'general'
         },
-        branding:{
-            logo:'insert logo url here',
-            name:'insert bot name here',
-            WelcomeMessage:'insert welcome message here',
-            responseTimetext:'click the button below to start chatting'
+        branding: {
+            logo: 'https://images.unsplash.com/photo-1744116432674-e6ff2b6d9544?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            name: 'CustomCX Agent',
+            welcomeText: 'Hi 👋, how can we help?',
+            responseTimeText: 'We typically respond right away',
+            poweredBy: {
+                text: 'Powered by CustomCX',
+                link: 'https://customcx.com'
+            }
         },
-        style:{
-            primaryColor:'#000000',
-            secondaryColor:'#ffffff',
-            backgroundColor:'#ffffff',
-            position:'right',
-            fontFamily:'Arial, sans-serif'
-        },
-    }
- </script>
+        style: {
+            primaryColor: '#854fff',
+            secondaryColor: '#6b3fd4',
+            position: 'right', // 'left' or 'right'
+            backgroundColor: '#ffffff',
+            fontColor: '#333333',
+            
 
- <script>
-    src="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js"
- </script>
+        }
+        
+
+    };
+</script>
+<style>
+.chat-assist-widget .chat-window {
+    height: min(520px, calc(100vh - 120px)) !important;
+    max-height: calc(100vh - 120px) !important;
+}
+
+/* Target mobile devices by width instead of height */
+@media (max-width: 768px) {
+    .chat-assist-widget .chat-window {
+        width: calc(100vw - 40px) !important;
+        left: 20px !important;
+        right: 20px !important;
+    }
+}
+
+/* For smaller mobile screens */
+@media (max-width: 480px) {
+    .chat-assist-widget .chat-window {
+        width: calc(100vw - 20px) !important;
+        left: 10px !important;
+        right: 10px !important;
+        bottom: 80px !important;
+    }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/gh/shadrack-ago/n8n/widget.js"></script>
+
+
+</body>
+</html>

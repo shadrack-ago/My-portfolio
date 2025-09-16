@@ -29,6 +29,7 @@
 	--chat--color-disabled: #777980;
 	--chat--color-typing: #404040;
   }
+
   
   * {
     margin: 0;
@@ -1331,4 +1332,3 @@ nav ul li a:hover {
 .form-status.error {
   color: #b00020;
 }
-  

@@ -29,29 +29,13 @@
 
 <!-- n8n chat widget -->
 
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 <script type="module">
 	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
 	createChat({
-		webhookUrl: 'https://agents.customcx.com/webhook/71b9dd6d-e122-42be-b7f9-db0646c1315a/chat',
-
-    i18n: {
-		en: {
-             logo:'insert logo url here',
-			title: 'By CustomCX',
-			subtitle: "Start a chat.Portfolio AI Agent. I'm up 24/7.",
-			// footer: '',
-			getStarted: 'New Conversation',
-			inputPlaceholder: 'Type your question..',
-		},
-	},
-    
-	initialMessages: [
-		// 'Hi there! 👋',
-		'My name is Shadrack AI. Ask me about Shadrack\'s qualifications?'
-	]
-  
-  });
+		webhookUrl: 'https://agents.customcx.com/webhook/e256f556-c776-4ba8-9cc3-bc0b91ce364d/chat'
+	});
 </script>
 
 </head>

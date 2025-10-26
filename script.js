@@ -1,3 +1,25 @@
+// Define closeModal function globally first
+window.closeModal = function() {
+  const modal = document.getElementById('discoveryModal');
+  if (modal) {
+    modal.classList.remove('active');
+    // Mark as closed in session storage
+    sessionStorage.setItem('discoveryModalClosed', 'true');
+  }
+};
+
+// Function to show the discovery modal (triggered by button)
+window.showDiscoveryModal = function() {
+  const modal = document.getElementById('discoveryModal');
+  if (modal) {
+    modal.classList.add('active');
+    // Initialize icons
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+  }
+};
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lucide icons
@@ -169,5 +191,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Discovery Call Modal Functionality
+    const discoveryModal = document.getElementById('discoveryModal');
+    
+    if (discoveryModal) {
+      // Close modal when clicking outside (on overlay)
+      discoveryModal.addEventListener('click', function(e) {
+        if (e.target === discoveryModal) {
+          closeModal();
+        }
+      });
+
+      // Close modal on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && discoveryModal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // Check if modal was already closed in this session
+      const modalClosed = sessionStorage.getItem('discoveryModalClosed');
+      
+      // Show modal after 4.5 seconds if not already closed
+      if (!modalClosed) {
+        setTimeout(() => {
+          discoveryModal.classList.add('active');
+          // Initialize icons after showing modal
+          setTimeout(() => {
+            lucide.createIcons();
+          }, 100);
+        }, 4500); // 4.5 seconds delay
+      }
+    }
   });
   

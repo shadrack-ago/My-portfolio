@@ -100,6 +100,14 @@
     transition: var(--transition);
     cursor: pointer;
     gap: 0.5rem;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+  }
+  
+  /* Style button elements with btn class */
+  button.btn {
+    border: none;
   }
   
   .btn-primary {
@@ -1331,4 +1339,210 @@ nav ul li a:hover {
 
 .form-status.error {
   color: #b00020;
+}
+
+/* Discovery Call Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999 !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-popup {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  padding: 0;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform: scale(0.8) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.active .modal-popup {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #000;
+  transform: rotate(90deg);
+}
+
+.modal-content {
+  padding: 3rem 2.5rem 2.5rem;
+  text-align: center;
+}
+
+.modal-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.2));
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  overflow: hidden;
+  border: 3px solid rgba(37, 99, 235, 0.2);
+}
+
+.modal-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.modal-icon svg {
+  width: 40px;
+  height: 40px;
+  color: var(--primary-hover);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.modal-description {
+  font-size: 1.05rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.modal-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--primary-hover), #1e40af);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.modal-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #1e40af, var(--primary-hover));
+}
+
+.modal-cta-btn:active {
+  transform: translateY(-1px);
+}
+
+.modal-cta-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.modal-subtext {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+  .modal-popup {
+    width: 95%;
+    padding: 0;
+  }
+
+  .modal-content {
+    padding: 2.5rem 2rem 2rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+  }
+
+  .modal-cta-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modal-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-description {
+    font-size: 0.95rem;
+  }
 }

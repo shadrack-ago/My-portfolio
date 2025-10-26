@@ -92,7 +92,7 @@
               "Transforming ideas into digital solutions. Specializing in AI automation, AI-powered softwares, rapid development, and platform intergration to drive business growth."
             </p>
             <div class="btn-group">
-              <a href="https://cal.com/shadrack-customcx/30min" class="btn btn-primary">Book Discovery Call</a>
+              <button onclick="showDiscoveryModal()" class="btn btn-primary">Book Discovery Call</button>
               <a href="https://GitHub.com/shadrack-ago" class="btn btn-outline">GitHub</a>
               <a href="#about" class="btn btn-outline">Learn More</a>
             </div>
@@ -105,7 +105,7 @@
         </div>
         <div class="scroll-indicator">
           <a href="#about">
-            <span>Scroll Down</span>
+            <span>explore</span>
             <i data-lucide="arrow-down"></i>
           </a>
         </div>
@@ -1046,6 +1046,30 @@
       </div>
     </div>
   </footer>
+
+  <!-- Discovery Call Popup Modal -->
+  <div id="discoveryModal" class="modal-overlay">
+    <div class="modal-popup">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-content">
+        <div class="modal-icon">
+          <!-- Replace this img src with your logo/image URL -->
+          <img src="images/speech.jpg" alt="Your Logo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+        <h2 class="modal-title">Let's Work Together!</h2>
+        <p class="modal-description">
+          Book a free 30-minute discovery call to discuss your project and explore how I can help bring your ideas to life.
+        </p>
+        <a href="https://cal.com/shadrack-customcx/30min" class="modal-cta-btn" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="calendar"></i>
+          Book Free Discovery Call
+        </a>
+        <p class="modal-subtext">No commitment, just a friendly conversation about your needs.</p>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/lucide-icons@0.176.0/dist/umd/lucide.min.js"></script>
 

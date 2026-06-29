@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5503
+    "liveServer.settings.port": 5503,
+    "qwen-code.provider": "api-key",
+    "qwen-code.apiKey": "ms-35f571a9-d999-4d9d-843e-710cbbf3671b",
+    "qwen-code.codingPlanRegion": "global"
 }

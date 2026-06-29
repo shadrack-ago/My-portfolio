@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Widget Script</title>
+</head>
+<body>
+
+<!--  CHAT WIDGET CONFIGURATION -->
+<script>
+    window.ChatWidgetConfig = {
+
+        // WEBHOOK — your n8n endpoint
+        webhook: {
+            url: 'https://n8n.srv1708907.hstgr.cloud/webhook/53257979-18fd-4b0a-96d0-8e0f0d1758fe/chat',
+            route: 'general'
+        },
+
+        // BRANDING — all visible text and imagery
+        branding: {
+            // Header
+            logo: 'YOUR_LOGO_URL',           // URL to your company logo image
+            name: 'Your Company Name',        // Shown in the chat header
+
+            // Welcome screen
+            welcomeText: 'Hi 👋, how can we help?',          // Large headline on the welcome screen
+            responseTimeText: 'We typically respond right away', // Subtitle under the welcome headline
+
+            // Launcher button (bottom-right pill)
+            launcherText: 'Need help?',       // Text on the floating launcher button
+
+            // Registration form (shown before the chat starts)
+            registrationTitle: 'Please enter your details to start chatting',
+            nameLabel: 'Name',                // Label above the name field
+            namePlaceholder: 'Your name',     // Placeholder inside the name field
+            emailLabel: 'Email',              // Label above the email field
+            emailPlaceholder: 'Your email address', // Placeholder inside the email field
+            submitText: 'Continue to Chat',   // Registration form submit button text
+
+            // Chat input area
+            inputPlaceholder: 'Type your message here...', // Placeholder inside the message box
+
+            // Footer credit (set text to '' to hide)
+            poweredBy: {
+                text: 'Powered by n8n',
+                link: 'https://n8n.partnerlinks.io/fabimarkl'
+            }
+        },
+
+        // STYLE — colors, layout, dimensions
+        style: {
+            primaryColor: '#654fff',          // Main brand color (buttons, header gradient, accents)
+            secondaryColor: '#6b3fd4',        // Darker variant of primary (gradient end)
+            backgroundColor: '#ffffff',       // Chat window background
+            fontColor: '#333333',             // Main text color
+
+            position: 'right',               // Launcher position: 'right' or 'left'
+
+            chatWindowWidth: '380px',         // Width of the chat window
+            chatWindowHeight: '580px'         // Height of the chat window
+        },
+
+        // SUGGESTED QUESTIONS — shown as quick-tap buttons on open
+        // Set to [] to disable
+        suggestedQuestions: [
+            // 'What services do you offer?',
+            // 'How can I get started?',
+            // 'What are your support hours?'
+        ]
+    };
+</script>
+
+<!-- Widget Script  -->
+<script src="https://zethvpsflljaugvlrmzv.supabase.co/functions/v1/widget"></script>
+</body>
+</html>
